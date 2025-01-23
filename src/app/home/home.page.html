@@ -1,20 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Quiz DAMM
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+  <h2>Eventos</h2>
+  <input #nameInput type="text" placeholder="Nombre" />
+  <input #startDateInput type="date" />
+  <input #endDateInput type="date" />
+  <input #locationInput type="text" placeholder="Ubicacion" />
+  <input #managerInput type="text" placeholder="Encargado del evento" />
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <button
+    (click)="addItem(nameInput.value, startDateInput.value, endDateInput.value, locationInput.value, managerInput.value); 
+             nameInput.value=''; startDateInput.value=''; endDateInput.value=''; locationInput.value=''; managerInput.value=''">Agregar</button>
 </ion-content>
+
+<table border="1" style="margin-top: 20px; width: 100%; text-align: left">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Fecha de inicio</th>
+      <th>Fecha de fin</th>
+      <th>Ubicacion</th>
+      <th>Nombre de encargado</th>
+      <th>Confirmado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.startDate }}</td>
+      <td>{{ item.endDate }}</td>
+      <td>{{ item.location }}</td>
+      <td>{{ item.manager }}</td>
+      <td>
+        <input type="checkbox" [checked]="item.confirmed" />
+      </td>
+
+      <td>
+        <button (click)="removeItem(item.id)">Eliminar</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

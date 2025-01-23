@@ -7,19 +7,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Eventos</h2>
-  <input #nameInput type="text" placeholder="Nombre" />
-  <input #startDateInput type="date" />
-  <input #endDateInput type="date" />
-  <input #locationInput type="text" placeholder="Ubicacion" />
-  <input #managerInput type="text" placeholder="Encargado del evento" />
-
-  <button
-    (click)="addItem(nameInput.value, startDateInput.value, endDateInput.value, locationInput.value, managerInput.value); 
+  <h1 style="text-align: center; font-family: 'Courier New', Courier, monospace; color: indigo; font-size: 80 px;">
+    Registro de eventos
+  </h1>
+  <div id="container">
+    Nombre del evento <input #nameInput type="text" placeholder="Nombre" /> <br> <br>
+    Fecha de inicio <input #startDateInput type="date" /> <br> <br>
+    Fecha de fin <input #endDateInput type="date" /> <br> <br>
+    Ubicacion <input #locationInput type="text" placeholder="Ubicacion" /> <br> <br>
+    Nombre del encargado <input #managerInput type="text" placeholder="Encargado del evento" /> <br>
+    <button
+      (click)="addItem(nameInput.value, startDateInput.value, endDateInput.value, locationInput.value, managerInput.value); 
              nameInput.value=''; startDateInput.value=''; endDateInput.value=''; locationInput.value=''; managerInput.value=''">Agregar</button>
+  </div>
 </ion-content>
 
-<table border="1" style="margin-top: 20px; width: 100%; text-align: left">
+<table border="1" style="margin-top: 20px; width: 100%; text-align: left; margin-right: 100px;">
   <thead>
     <tr>
       <th>Id</th>
